@@ -16,6 +16,7 @@
     "clean": "concurrently 'cd ./host && yarn clean' 'cd ./remote_01 && yarn clean' 'cd ./remote_02 && yarn clean' 'cd ./remote_03 && yarn clean' 'cd ./remote_04 && yarn clean'"
   },
   "devDependencies": {
-    "concurrently": "7.3.0"
+    "concurrently": "7.3.0",
+    "null-loader": "^4.0.1"
   }
 }
