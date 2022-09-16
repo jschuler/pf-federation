@@ -1,4 +1,4 @@
-import { NotificationBadge as PfNotificationBadge } from '@patternfly/react-core';
+import { NotificationBadge as PfNotificationBadge } from '@breakaway/react-core';
 
 const NotificationBadge = () => (
     <div>
