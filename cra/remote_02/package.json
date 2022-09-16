@@ -1,14 +1,15 @@
 {
-  "name": "@cra/remote",
+  "name": "@cra/remote_02",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@patternfly/react-core": "4.32.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "PORT=3002 node ./scripts/start.js",
+    "start": "PORT=3003 node ./scripts/start.js",
     "build": "node ./scripts/build.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -1,15 +1,17 @@
 import React from 'react';
-
-const RemoteButton = React.lazy(() => import('remote/Button'));
+import Page from './Page';
+import { StackItem } from '@patternfly/react-core';
+import './App.css';
+const RemoteButton1 = React.lazy(() => import('remote_01/Button'));
+const RemoteButton2 = React.lazy(() => import('remote_02/Button'));
 
 const App = () => (
-  <div>
-    <h1>Basic Host-Remote</h1>
-    <h2>Host</h2>
+  <Page>
     <React.Suspense fallback="Loading Button">
-      <RemoteButton />
+      <StackItem><RemoteButton1 /></StackItem>
+      <StackItem><RemoteButton2 /></StackItem>
     </React.Suspense>
-  </div>
+  </Page>
 );
 
 export default App;

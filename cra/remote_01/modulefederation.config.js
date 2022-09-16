@@ -1,7 +1,7 @@
 const { dependencies } = require('./package.json');
 
 module.exports = {
-  name: 'remote',
+  name: 'remote_01',
   exposes: {
     './Button': './src/Button',
   },
