@@ -3,7 +3,7 @@ const { dependencies } = require('./package.json');
 module.exports = {
   name: 'remote_02',
   exposes: {
-    './Button': './src/Button',
+    './Remote2': './src/Remote2',
   },
   filename: 'remoteEntry.js',
   shared: {
@@ -15,6 +15,10 @@ module.exports = {
     'react-dom': {
       singleton: true,
       requiredVersion: dependencies['react-dom'],
+    },
+    '@breakaway/shared-context': {
+      import: '@breakaway/shared-context',
+      requiredVersion: require('../shared-context/package.json').version,
     },
   },
 };

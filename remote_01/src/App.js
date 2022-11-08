@@ -1,9 +1,9 @@
-import LocalButton from './Button';
+import Remote1 from './Remote1';
 
 const App = () => (
   <div>
     <h1>Remote 1</h1>
-    <LocalButton />
+    <Remote1 />
   </div>
 );
 

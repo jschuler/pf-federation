@@ -19,5 +19,9 @@ module.exports = {
       singleton: true,
       requiredVersion: dependencies['react-dom'],
     },
+    '@breakaway/shared-context': {
+      import: '@breakaway/shared-context',
+      requiredVersion: require('../shared-context/package.json').version,
+    },
   },
 };

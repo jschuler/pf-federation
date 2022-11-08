@@ -42,6 +42,7 @@ import QuestionCircleIcon from '@patternfly/react-icons/dist/esm/icons/question-
 import AttentionBellIcon from '@patternfly/react-icons/dist/esm/icons/attention-bell-icon';
 import LightbulbIcon from '@patternfly/react-icons/dist/esm/icons/lightbulb-icon';
 import BarsIcon from '@patternfly/react-icons/dist/js/icons/bars-icon';
+import { ThemeContextProvider } from '@breakaway/shared-context';
 
 class PageLayoutGrouped extends React.Component {
   constructor(props) {
@@ -111,9 +112,10 @@ class PageLayoutGrouped extends React.Component {
 
   render() {
     const { isDropdownOpen, isKebabDropdownOpen, activeItem, isFullKebabDropdownOpen, isDrawerExpanded } = this.state;
+    const { context } = this.props;
 
     const PageNav = (
-      <Nav onSelect={this.onNavSelect} aria-label="Nav">
+      <Nav onSelect={this.onNavSelect} aria-label="Nav" /*theme={context.dark ? 'light' : 'dark'}*/>
         <NavList>
           <NavItem href="#" itemId={0} isActive={activeItem === 0}>
             System panel
@@ -272,6 +274,11 @@ class PageLayoutGrouped extends React.Component {
 
     const Sidebar = <PageSidebar nav={PageNav} />;
 
+    const style = {
+      border: '1px solid',
+      padding: '10px'
+    }
+
     return (
       <Drawer isExpanded={isDrawerExpanded} isInline onExpand={this.onExpand}>
         <DrawerContent panelContent={panelContent}>
@@ -289,7 +296,12 @@ class PageLayoutGrouped extends React.Component {
               <PageSection>
                 <Stack hasGutter>
                     <StackItem>
-                        <Button>Button from host app</Button>
+                        <div style={style}>
+                          <div>This button is part of the host app, along with the masthead and side nav.</div>
+                          <div>The host app uses an older version of PatternFly before the breaking changes to the Button component.</div>
+                          <div>As such, the Button styles should not be changed by incoming remote apps.</div>
+                          <div><Button>Button from host app</Button></div>
+                        </div>
                     </StackItem>
                     {this.props.children}
                 </Stack>
@@ -302,4 +314,13 @@ class PageLayoutGrouped extends React.Component {
   }
 }
 
-export default PageLayoutGrouped;
+const HostPage = ({ children }) => {
+  const context = React.useContext(ThemeContextProvider);
+  return (
+    <div id="main">
+      <PageLayoutGrouped context={context}>{children}</PageLayoutGrouped>
+    </div>
+  )
+}
+
+export default HostPage;

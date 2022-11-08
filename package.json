@@ -6,7 +6,8 @@
       "remote_01",
       "remote_02",
       "remote_03",
-      "remote_04"
+      "remote_04",
+      "shared-context"
     ]
   },
   "scripts": {
